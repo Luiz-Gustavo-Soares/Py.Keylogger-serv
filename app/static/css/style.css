@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600&family=Cairo:wght@300;400;500;600&family=Source+Code+Pro:wght@300;400;500;600&display=swap');
+
+
+:root {
+    --font1: 'Cairo', sans-serif;
+    --font2: 'Source Code Pro', monospace;
+    --font3: 'Arimo', sans-serif;
+    --cor1: #2B2054;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    font-family: var(--font3);
+    background-color: rgb(241, 241, 241);
+}
+
+header {
+    background-color: var(--cor1);
+}
+
+header h1 {
+    font-family: var(--font1);
+    font-weight: bold;
+    font-size: 2.5em;
+    color: white;
+    text-shadow: -3px 2px 6px rgba(0, 0, 0, 0.479);
+    padding-left: 10vw;
+}
+
+nav {
+    background-color: var(--cor1);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+nav a:hover {
+ opacity: 0.5;
+}
+
+h2 {
+    text-indent: 3em;
+    padding: 14px 5px;
+    text-shadow: 1px 1px 5px rgba(43, 32, 84, 0.37);
+}
+
+
+div.parte-pc {
+    max-width: 900px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: rgb(220, 221, 230);
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.431);
+}
+
+div.parte-pc .header-parte-pc {
+    background-color: var(--cor1);
+    color: white;
+    margin: -10px -10px 0px -10px;
+    border-radius: 9px 10px 0px 0px;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.356);
+    height: 30px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.parte-pc .header-parte-pc p.data {
+    font-size: 0.8em;
+    text-decoration: underline;
+}
+
+div.parte-pc p.texto {
+    font-family: var(--font2);
+    padding: 10px 20px;
+    text-align: justify;
+}
+
+div.parte-pc p.criador {
+    text-align: end;
+    font-size: 0.9em;
+    padding-top: 10px;
+}
+
+
+div.prox {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.prox a{
+    font-size: 3em;
+    color: var(--cor1);
+    margin: 5px 10px;
+    padding: 5px;
+}
+
+div.prox p.num-page {
+    border-bottom: 1px solid black;
+    padding: 0px 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.322);
+}
