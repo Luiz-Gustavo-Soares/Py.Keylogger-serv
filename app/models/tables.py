@@ -7,7 +7,7 @@ class Save_keys(db.Model):
     pcname = db.Column(db.String)
     criador = db.Column(db.String)
     texto = db.Column(db.Text)
-    data = db.Column(db.Date)
+    data = db.Column(db.DateTime)
     
 
     def __init__(self, pcname, texto, data, criador='Sem registro'):

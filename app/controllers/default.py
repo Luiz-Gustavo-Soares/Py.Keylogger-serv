@@ -2,7 +2,7 @@ from flask import render_template, request, jsonify
 from app import app, db
 from sqlalchemy import desc
 
-from datetime import date
+from datetime import datetime
 
 from app.models.tables import Save_keys
 from app.controllers.respostas import resposta_cod_add
@@ -53,7 +53,7 @@ def add():
     if 'criador' not in body:   
         body['criador'] = 'Anonymo'
 
-    me = Save_keys(body['pcname'], body['texto'], date.today(), body['criador'])
+    me = Save_keys(body['pcname'], body['texto'], datetime.now(), body['criador'])
     db.session.add(me)
     db.session.commit()
 
