@@ -14,6 +14,28 @@
     margin: 0px;
 }
 
+@media screen and ( max-width: 600px ) {
+    header h1 {
+        text-align: center;
+        padding-left: 0px;
+    }
+
+    h2 {
+        text-indent: 1.2em;
+    }
+}
+
+@media screen and ( min-width: 600px ) {
+    header h1 {
+        padding-left: 10vw;
+    }
+
+    h2 {
+        text-indent: 3em;
+    }
+}
+
+
 html, body {
     font-family: var(--font3);
     background-color: rgb(241, 241, 241);
@@ -29,7 +51,11 @@ header h1 {
     font-size: 2.5em;
     color: white;
     text-shadow: -3px 2px 6px rgba(0, 0, 0, 0.479);
-    padding-left: 10vw;
+}
+
+a#logo {
+    text-decoration: none;
+    color: white;
 }
 
 nav {
@@ -57,7 +83,6 @@ nav a:hover {
 }
 
 h2 {
-    text-indent: 3em;
     padding: 14px 5px;
     text-shadow: 1px 1px 5px rgba(43, 32, 84, 0.37);
 }
