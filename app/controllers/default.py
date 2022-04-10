@@ -20,7 +20,7 @@ def teclas_salvas(pg=1):
     QNT_VIS_PAGE = 5 #Quantidade de itens que seram visualizados em uma unica pagina
     
     pgmx = (int(pg)-1) * QNT_VIS_PAGE
-    save = Save_keys.query.filter(Save_keys.id > pgmx).limit(QNT_VIS_PAGE)
+    save = Save_keys.query.filter(Save_keys.id <= Save_keys.query.count() - pgmx).order_by(desc(Save_keys.id)).limit(QNT_VIS_PAGE)
 
     if int(pg) <= 1:
         beforepage = 1
