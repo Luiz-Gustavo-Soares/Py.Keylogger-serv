@@ -15,6 +15,7 @@
         </div>
         <p class="texto">{{save.texto}}</p>
         <p class="criador">Criador: {{save.criador}}</p>
+        <p class="mais-info"><a href="{{url_for('tsave', id=save.id)}}">Mais informações <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
     </div>
 
     {% endfor %}

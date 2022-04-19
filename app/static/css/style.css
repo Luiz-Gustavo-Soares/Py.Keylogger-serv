@@ -130,6 +130,12 @@ div.parte-pc p.criador {
     padding-top: 10px;
 }
 
+div.parte-pc p.mais-info a{
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+}
+
 
 div.prox {
     text-align: center;

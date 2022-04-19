@@ -14,6 +14,12 @@ def home():
     return render_template('home.html', saves=saves)
 
 
+@app.route('/save/<id>')
+def tsave(id):
+    save = Save_keys.query.get(id)
+    return render_template('save.html', save=save)
+
+
 @app.route('/teclasalvas')
 @app.route('/teclasalvas/page/<pg>')
 def teclas_salvas(pg=1):
