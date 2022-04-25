@@ -1,6 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{save.pcname.capitalize()}}</h2>
+<div class="save">
+    <h2 class="nome">{{save.pcname.capitalize()}}</h2>
+    <p class="data"></p>
+    <p class="texto">{{save.texto}}</p>
+
+    <table>
+        <tr>
+            <th>Altor</th>
+            <td>{{save.criador}}</td>
+        </tr>
+        <tr>
+            <th>Data</th>
+            <td>{{save.data.strftime("%d/%m/%Y %H:%M")}}</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+            <td>{{save.ip}}</td>
+        </tr>
+        <tr>
+            <th>Latitude</th>
+            <td id="lat">--</td>
+        </tr>
+        <tr>
+            <th>Longitude</th>
+            <td id="lon">--</td>
+        </tr>
+    </table>
+</div>
+<div id="map" style="width: 400px; height: 400px;"></div>
+
+<script src="{{url_for('static', filename='js/save.js')}}"></script>
+<script>
+    window.onload = gerarLatLong('http://ip-api.com/json/{{save.ip}}');
+</script>
+
+<script src="{{url_for('static', filename='js/maps.js')}}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ49vtVpyOTuotgClzsAyqtd2kZ30kOC4"></script>
+<script>
+    window.onload = iniciarMap()
+</script>
+
 
 {% endblock %}

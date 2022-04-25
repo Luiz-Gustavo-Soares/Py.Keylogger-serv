@@ -158,6 +158,36 @@ div.prox p.num-page {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.322);
 }
 
+div.save {
+    max-width: 1300px;
+    margin: auto;
+}
+
+div.save h2.nome {
+    font-size: 2em;
+}
+
+div.save p.texto {
+    max-width: 900px;
+    margin: 40px auto 10px auto;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.295);
+}
+
+div.save table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 40%;
+    min-width: 250px;
+    max-width: 600px;
+}
+
+div.save td, th {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
 
 footer {
     background-color: var(--cor1);
