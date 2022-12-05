@@ -6,18 +6,23 @@ from datetime import datetime
 
 from app.models.tables import Save_keys
 from app.controllers.respostas import resposta_cod_add
+from app.controllers.texte_manager import limitar_texto
 
 
 @app.route('/')
 def home():
     saves = Save_keys.query.order_by(Save_keys.id.desc()).limit(5).all()
+    
+    for i in range(len(saves)):
+        saves[i].texto = limitar_texto(saves[i].texto, 200)
+        
     return render_template('home.html', saves=saves)
 
 
 @app.route('/save/<id>')
 def tsave(id):
     save = Save_keys.query.get(id)
-    return render_template('save.html', save=save, ip='170.83.102.234')
+    return render_template('save.html', save=save)
 
 
 @app.route('/teclasalvas')
@@ -39,6 +44,9 @@ def teclas_salvas(pg=1):
         nextpage = int(pg) + 1
 
     saves = save.all()
+    for i in range(len(saves)):
+        saves[i].texto = limitar_texto(saves[i].texto, 600)
+        
     return render_template('teclas-salvas.html', saves=saves, page=pg, nextpage=nextpage, beforepage=beforepage)
 
 
@@ -49,10 +57,9 @@ def download():
 @app.route('/add', methods=['POST'])
 def add():
     body = request.get_json()
-
     for p in ('pcname', 'texto'):
         if p not in body:
-            return resposta_cod_add(cod=400, msg=f'O parametro {p} é obrigatorio! ')
+            return resposta_cod_add(cod=400, msg=f'O parametro [{p}] é obrigatorio! ')
     
     if 'criador' not in body:   
         body['criador'] = 'Anonymo'
