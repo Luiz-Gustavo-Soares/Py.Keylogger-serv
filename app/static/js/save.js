@@ -17,9 +17,21 @@ function mudarTabela(lat, lon) {
     }
 }
 
+
+function gerarLinkMaps(lat, lon) {
+    if (lat && lon){
+        var paragMap = document.createElement('p')
+        paragMap.classList.add('map-link')
+        paragMap.innerHTML = `<a href="https://www.google.com/maps/@${lat},${lon},14z" target="_blank">Mapa</a>`
+    
+        document.getElementsByClassName('save')[0].appendChild(paragMap)
+    }
+}
+
 function gerarLatLong(url){
     r = fazGet(url);
     mudarTabela(r.lat, r.lon);
+    gerarLinkMaps(r.lat, r.lon)
 }
 
 

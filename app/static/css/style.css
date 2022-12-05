@@ -23,6 +23,10 @@
     h2 {
         text-indent: 1.2em;
     }
+
+    nav ul {
+        justify-content: center;
+    }
 }
 
 @media screen and ( min-width: 600px ) {
@@ -32,6 +36,11 @@
 
     h2 {
         text-indent: 3em;
+    }
+
+
+    nav ul {
+        justify-content: flex-end;
     }
 }
 
@@ -65,7 +74,6 @@ nav {
 nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     flex-direction: row;
 }
@@ -187,6 +195,24 @@ div.save table {
 div.save td, th {
     border: 1px solid black;
     padding: 5px 10px;
+}
+
+div.save .map-link {
+    padding-top: 20px;
+    text-align: center;
+}
+
+div.save .map-link a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2em;
+    border-bottom: 2px dashed var(--cor1);
+    padding: 3px 8px;
+}
+
+div.save .map-link a::after {
+    content: ' \1F30E';
+    font-family: var(--font1);
 }
 
 footer {
