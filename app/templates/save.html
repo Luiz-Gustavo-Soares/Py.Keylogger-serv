@@ -29,17 +29,10 @@
         </tr>
     </table>
 </div>
-<div id="map" style="width: 400px; height: 400px;"></div>
 
 <script src="{{url_for('static', filename='js/save.js')}}"></script>
 <script>
     window.onload = gerarLatLong('http://ip-api.com/json/{{save.ip}}');
-</script>
-
-<script src="{{url_for('static', filename='js/maps.js')}}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ49vtVpyOTuotgClzsAyqtd2kZ30kOC4"></script>
-<script>
-    window.onload = iniciarMap()
 </script>
 
 
