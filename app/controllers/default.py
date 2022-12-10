@@ -19,7 +19,7 @@ def home():
     return render_template('home.html', saves=saves)
 
 
-@app.route('/save/<id>')
+@app.route('/save/<id>', methods=['POST', 'GET'])
 def tsave(id):
     save = Save_keys.query.get(id)
     return render_template('save.html', save=save)
@@ -63,13 +63,18 @@ def add():
     
     if 'criador' not in body:   
         body['criador'] = 'Anonymo'
+    elif body['criador'] == '': 
+        body['criador'] = 'Anonymo'
+        
     
     if 'ip' not in body:
+        body['ip'] = None
+    elif body['ip'] == '': 
         body['ip'] = None
     
     me = Save_keys(pcname=body['pcname'], texto=body['texto'], data=datetime.now(), criador=body['criador'], ip=body['ip'])
     db.session.add(me)
     db.session.commit()
 
-    return resposta_cod_add(cod=200, msg='Cadastrado com Sucesso! ')
+    return resposta_cod_add(cod=200, msg='Cadastrado com Sucesso!')
 
