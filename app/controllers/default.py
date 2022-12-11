@@ -1,10 +1,11 @@
-from flask import render_template, request, jsonify
+from flask import render_template, url_for, redirect, request, jsonify
 from app import app, db
 from sqlalchemy import desc
 
 from datetime import datetime
 
 from app.models.tables import Save_keys
+from app.models.forms import Delet_form
 from app.controllers.respostas import resposta_cod_add
 from app.controllers.texte_manager import limitar_texto
 
@@ -22,7 +23,18 @@ def home():
 @app.route('/save/<id>', methods=['POST', 'GET'])
 def tsave(id):
     save = Save_keys.query.get(id)
-    return render_template('save.html', save=save)
+    form = Delet_form()
+    msg = ''
+
+    if form.validate_on_submit():
+        if form.data['senha'] == save.senha_delete:
+            db.session.delete(save)
+            db.session.commit()
+            return redirect(url_for('teclas_salvas'))
+        else:
+            msg = 'Senha incorreta'
+    
+    return render_template('save.html', save=save, form=form, msg=msg)
 
 
 @app.route('/teclasalvas')

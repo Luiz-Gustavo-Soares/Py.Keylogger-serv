@@ -220,6 +220,63 @@ div.save .map-link a::after {
     font-family: var(--font1);
 }
 
+
+form input{
+    border: 2px solid var(--cor1);
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 1.2em;
+}
+
+form input[type=submit]{
+    font-size: 1.1em;
+    font-family: var(--font2);
+    font-weight: bold;
+    background-color: var(--cor1);
+    color: #ffffff;
+    transition: 100ms;
+}
+
+form input[type=submit]:hover{
+    background-color: #ffffff;
+    color: var(--cor1);
+}
+
+form#form-delete-save {
+    padding: 40px 50px;
+    max-width: 280px;
+    margin-left: auto;
+}
+
+form#form-delete-save input[type=password] {
+    width: 0px;
+    display: none;
+
+}
+
+.move-input {
+    animation-name: input-visibilit;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes input-visibilit {
+    0% {
+        width: 0px; 
+    }
+
+    100% {
+        width: 150px;
+    }
+}
+
+form .mensagem-form {
+    color: #ff0000;
+    font-family: var(--font1);
+    text-decoration: underline;
+}
+
 footer {
     background-color: var(--cor1);
     color: white;

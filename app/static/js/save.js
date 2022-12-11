@@ -24,7 +24,7 @@ function gerarLinkMaps(lat, lon) {
         paragMap.classList.add('map-link')
         paragMap.innerHTML = `<a href="https://www.google.com/maps/@${lat},${lon},14z" target="_blank">Mapa</a>`
     
-        document.getElementsByClassName('save')[0].appendChild(paragMap)
+        document.getElementById('mapa').appendChild(paragMap)
     }
 }
 

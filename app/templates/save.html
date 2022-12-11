@@ -3,9 +3,14 @@
 {% block content %}
 <div class="save">
     <h2 class="nome">{{save.pcname.capitalize()}}</h2>
-    <p class="data"></p>
+    <form method="POST" id="form-delete-save">
+        <p class="mensagem-form">{{msg}}</p>
+        {{ form.csrf_token }}
+        <input type="submit" method="POST" value="Deletar">
+        {{ form.senha }}
+    </form>
     <p class="texto">{{save.texto}}</p>
-
+    
     <table>
         <tr>
             <th>Altor</th>
@@ -28,9 +33,14 @@
             <td id="lon">--</td>
         </tr>
     </table>
-</div>
+
+    <div id="mapa"></div>
+
+
+</div>    
 
 <script src="{{url_for('static', filename='js/save.js')}}"></script>
+<script src="{{url_for('static', filename='js/elementsAnimations.js')}}"></script>
 <script>
     window.onload = gerarLatLong('http://ip-api.com/json/{{save.ip}}');
 </script>
