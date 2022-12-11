@@ -11,3 +11,7 @@ formDelete.addEventListener('mouseleave', function(event){
     document.querySelector('#form-delete-save input[type=password]').classList.remove('move-input')
     document.querySelector('#form-delete-save input[type=password]').style.display = 'none'
 })
+
+setTimeout(function(){
+    document.querySelector('form .mensagem-form').innerText = ''
+}, 8000)
