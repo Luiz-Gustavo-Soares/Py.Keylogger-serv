@@ -3,12 +3,16 @@
 {% block content %}
 <div class="save">
     <h2 class="nome">{{save.pcname.capitalize()}}</h2>
-    <form method="POST" id="form-delete-save">
-        <p class="mensagem-form">{{msg}}</p>
-        {{ form.csrf_token }}
-        <input type="submit" method="POST" value="Deletar">
-        {{ form.senha }}
-    </form>
+
+    <div class="form">
+        <form method="POST" id="form-delete-save">
+            <p class="mensagem-form">{{msg}}</p>
+            {{ form.csrf_token }}
+            <input type="submit" method="POST" value="Deletar">
+            {{ form.senha }}
+        </form>
+    </div>
+
     <p class="texto">{{save.texto}}</p>
     
     <table>

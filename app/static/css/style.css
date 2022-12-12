@@ -27,6 +27,11 @@
     nav ul {
         justify-content: center;
     }
+
+    div.form {
+        text-align: center;
+    }
+    
 }
 
 @media screen and ( min-width: 600px ) {
@@ -42,6 +47,11 @@
     nav ul {
         justify-content: flex-end;
     }
+
+    div.form {
+        text-align: end;
+    }
+    
 }
 
 
@@ -91,7 +101,7 @@ nav a:hover {
 }
 
 main {
-    min-height: 80vh;
+    min-height: 74vh;
     max-width: 1200px;
     margin: auto;
 }
@@ -252,8 +262,10 @@ form input[type=submit]:hover{
 form#form-delete-save {
     padding: 40px 50px;
     max-width: 280px;
-    margin-left: auto;
+    margin: auto;
+    display: inline-block;
 }
+
 
 form#form-delete-save input[type=password] {
     width: 0px;
