@@ -220,21 +220,8 @@ div.save td, th {
 }
 
 div.save .map-link {
-    padding-top: 20px;
+    margin-top: 50px;
     text-align: center;
-}
-
-div.save .map-link a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 1.2em;
-    border-bottom: 2px dashed var(--cor1);
-    padding: 3px 8px;
-}
-
-div.save .map-link a::after {
-    content: ' \1F30E';
-    font-family: var(--font1);
 }
 
 

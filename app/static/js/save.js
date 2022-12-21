@@ -22,7 +22,7 @@ function gerarLinkMaps(lat, lon) {
     if (lat && lon){
         var paragMap = document.createElement('p')
         paragMap.classList.add('map-link')
-        paragMap.innerHTML = `<a href="https://www.google.com/maps/@${lat},${lon},14z" target="_blank">Mapa</a>`
+        paragMap.innerHTML = `<iframe src="https://embed.waze.com/iframe?zoom=14&lat=${lat}&lon=${lon}&pin=1" width="500" height="350" allowfullscreen></iframe>`
     
         document.getElementById('mapa').appendChild(paragMap)
     }
