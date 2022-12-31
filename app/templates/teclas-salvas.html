@@ -20,14 +20,21 @@
 
     {% endfor %}
 
+    {%if saves|length == QNT_VIS_PAGE or beforepage < page %}
     <div class="prox">
         <a href="{{url_for('teclas_salvas', pg=(beforepage))}}"><abbr title="Página Anterior"><i class="fa-solid fa-angles-left"></i></abbr></a>
         <p class="num-page">{{page}}</p>
         <a href="{{url_for('teclas_salvas', pg=(nextpage))}}"><abbr title="Próxima Página"><i class="fa-solid fa-angles-right"></i></abbr></a>
     </div>
+    {% endif %}
 
 {% else %}
-    <p>Nenhum dado salvo </p>
+    <p class="sem-dados">Nenhum dado salvo </p>
+    {% if page > 1 %}
+    <div class="prox">
+        <a href="{{url_for('teclas_salvas', pg=(beforepage))}}"><abbr title="Página Anterior"><i class="fa-solid fa-angles-left"></i></abbr></a>
+    </div>
+    {% endif %}
 {% endif %}
 
 {% endblock %}

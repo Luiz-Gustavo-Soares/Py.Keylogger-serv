@@ -41,25 +41,26 @@ def tsave(id):
 @app.route('/teclasalvas/page/<pg>')
 def teclas_salvas(pg=1):
     QNT_VIS_PAGE = 5 #Quantidade de itens que seram visualizados em uma unica pagina
+    page = int(pg)
     
-    pgmx = (int(pg)-1) * QNT_VIS_PAGE
+    pgmx = (page-1) * QNT_VIS_PAGE
     save = Save_keys.query.filter(Save_keys.id <= Save_keys.query.count() - pgmx).order_by(desc(Save_keys.id)).limit(QNT_VIS_PAGE)
 
-    if int(pg) <= 1:
+    if page <= 1:
         beforepage = 1
     else:
-        beforepage = int(pg) - 1
+        beforepage = page - 1
 
     if save.count() < QNT_VIS_PAGE:
-        nextpage = int(pg)
+        nextpage = page
     else:
-        nextpage = int(pg) + 1
+        nextpage = page + 1
 
     saves = save.all()
     for i in range(len(saves)):
         saves[i].texto = limitar_texto(saves[i].texto, 600)
         
-    return render_template('teclas-salvas.html', saves=saves, page=pg, nextpage=nextpage, beforepage=beforepage)
+    return render_template('teclas-salvas.html', saves=saves, page=page, nextpage=nextpage, beforepage=beforepage, QNT_VIS_PAGE=QNT_VIS_PAGE)
 
 
 @app.route('/download')

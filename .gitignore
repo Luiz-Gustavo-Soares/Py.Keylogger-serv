@@ -1877,3 +1877,5 @@ venv/lib/python3.8/site-packages/zipp-3.11.0.dist-info/METADATA
 venv/lib/python3.8/site-packages/zipp-3.11.0.dist-info/RECORD
 venv/lib/python3.8/site-packages/zipp-3.11.0.dist-info/top_level.txt
 venv/lib/python3.8/site-packages/zipp-3.11.0.dist-info/WHEEL
+__pycache__/run.cpython-38.pyc
+app/storage.db

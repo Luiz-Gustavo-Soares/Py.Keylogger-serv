@@ -161,6 +161,10 @@ div.parte-pc p.mais-info a{
     border-bottom: 1px solid black;
 }
 
+p.sem-dados {
+    text-align: center;
+    font-size: 1.3em;
+}
 
 div.prox {
     text-align: center;
