@@ -224,6 +224,27 @@ div.save .map-link {
     text-align: center;
 }
 
+button#mostrar-mapa {
+    font-size: 1.1em;
+    font-family: var(--font2);
+    font-weight: bold;
+    background-color: var(--cor1);
+    color: #ffffff;
+    transition: 100ms;
+    border: 2px solid var(--cor1);
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 1.2em;
+    display: block;
+    margin: auto;
+
+    margin-top: 40px;
+}
+
+button#mostrar-mapa:hover {
+    background-color: #ffffff;
+    color: var(--cor1);
+}
 
 form input{
     border: 2px solid var(--cor1);

@@ -28,6 +28,23 @@ function gerarLinkMaps(lat, lon) {
     }
 }
 
+var visibilidadeMapa = false
+function ocultarMapa(){
+    let mapa = document.getElementById('mapa')
+    let botao = document.getElementById('mostrar-mapa')
+
+    if (!visibilidadeMapa){
+        mapa.style.display = 'block'
+        botao.innerText = 'Ocultar Mapa'
+        visibilidadeMapa = true
+    } else {
+        mapa.style.display = 'none'
+        botao.innerText = 'Mostrar Mapa'
+        visibilidadeMapa = false
+    }
+
+}
+
 function gerarLatLong(url){
     r = fazGet(url);
     mudarTabela(r.lat, r.lon);
