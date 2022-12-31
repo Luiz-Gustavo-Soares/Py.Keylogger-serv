@@ -20,7 +20,7 @@ function mudarTabela(lat, lon) {
 
 function gerarLinkMaps(lat, lon) {
     if (lat && lon){
-        var paragMap = document.createElement('p')
+        var paragMap = document.createElement('div')
         paragMap.classList.add('map-link')
         paragMap.innerHTML = `<iframe src="https://embed.waze.com/iframe?zoom=14&lat=${lat}&lon=${lon}&pin=1" width="500" height="350" allowfullscreen></iframe>`
     

@@ -250,6 +250,18 @@ button#mostrar-mapa:hover {
     color: var(--cor1);
 }
 
+div#mapa {
+    max-width: 650px;
+    margin: auto;
+}
+
+
+div#mapa iframe {
+    width: 90%;
+    border: 2px solid var(--cor1);
+    border-radius: 5px;
+}
+
 form input{
     border: 2px solid var(--cor1);
     border-radius: 5px;
